@@ -1,0 +1,21 @@
+{
+  "name": "ignite_find_a_friend",
+  "version": "1.0.0",
+  "description": "API para App de adoção de pets.",
+  "engines": {
+    "node": "18.20.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/server.js",
+    "start:dev": "tsx --watch src/server.js",
+    "build": "tsup src --out-dir build",
+    "test": "vitest run --dir src/"
+  },
+  "keywords": [],
+  "author": "Osvaldo A. Neto",
+  "license": "MIT",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2"
+  }
+}
