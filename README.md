@@ -31,7 +31,7 @@ Para vocês que está imaginando como seria o front-end da aplicação, aqui est
 
 ## Instruções instalação
 
-Eu utilizei `Node v20.18.1 (LTS)` para desenvolver a aplicação, todas as versões de depêndencias estão exatamente descritas no `package.json`. Você pode instalar essa versão do Node.js no seu sistema através dos comandos:
+Eu utilizei `Node v18.20.5 (LTS)` para desenvolver a aplicação, todas as versões de depêndencias estão exatamente descritas no `package.json`. Você pode instalar essa versão do Node.js no seu sistema através dos comandos:
 
 - Windows
 ```powershell
@@ -42,7 +42,7 @@ winget install Schniz.fnm
 fnm env --use-on-cd | Out-String | Invoke-Expression
 
 # download and install Node.js
-fnm use --install-if-missing 20.18.1
+fnm use --install-if-missing 18.20.5
 ```
 
 - Linux / MacOS
@@ -54,7 +54,7 @@ curl -fsSL https://fnm.vercel.app/install | bash
 source ~/.bashrc
 
 # download and install Node.js
-fnm use --install-if-missing 20.18.1
+fnm use --install-if-missing 18.20.5
 ```
 
 ## Instruções de uso
