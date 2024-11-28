@@ -16,6 +16,8 @@
   "author": "Osvaldo A. Neto",
   "license": "MIT",
   "devDependencies": {
-    "@rocketseat/eslint-config": "2.2.2"
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "22.10.1",
+    "typescript": "5.7.2"
   }
 }
