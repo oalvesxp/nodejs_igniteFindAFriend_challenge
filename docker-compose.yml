@@ -1,0 +1,9 @@
+services:
+  api-db-postgres:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=D7uli0o71H
+      - POSTGRESQL_DATABASE=apidev_db
