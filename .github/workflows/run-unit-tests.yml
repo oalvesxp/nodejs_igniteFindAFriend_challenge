@@ -1,0 +1,27 @@
+name: Run unit tests
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - 'feature/*'
+  pull_request:
+    branches:
+      - develop
+      - 'feature/*'
+
+jobs:
+  run-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.20.5
+          cache: npm
+
+      - run: npm ci
+      - run: npm run test:unit
