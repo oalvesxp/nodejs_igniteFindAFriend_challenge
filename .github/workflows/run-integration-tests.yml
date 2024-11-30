@@ -2,11 +2,11 @@ name: Run integration tests
 
 on:
   push:
-    branchs:
+    branches:
       - develop
       - master
   pull_request:
-    branchs:
+    branches:
       - develop
   
 jobs:
