@@ -34,4 +34,4 @@ jobs:
       - run: npm ci
       - run: npm run test:integration
         env:
-          DATABASE_URL: postgresql://docker:D7uli0o71H@localhost:5432/apidev_db?schema=public
+          DATABASE_URL: "postgresql://docker:D7uli0o71H@localhost:5432/apitest_db?schema=public"
