@@ -33,6 +33,9 @@ jobs:
 
       - run: npm ci
       - run: npx prisma migrate deploy
+        env:
+            DATABASE_URL: "postgresql://docker:D7uli0o71H@localhost:5432/apitest_db?schema=public"
+            
       - run: npm run test:integration
         env:
           DATABASE_URL: "postgresql://docker:D7uli0o71H@localhost:5432/apitest_db?schema=public"
