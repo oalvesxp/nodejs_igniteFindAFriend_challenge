@@ -4,11 +4,10 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    dir: 'tests/unit/',
+    dir: '__test__/unit/',
     environmentMatchGlobs: [
-      ['test/integration/integration/**/*.spec.ts', 'prisma'],
+      ['__test__/integration/integration/**/*.spec.ts', 'prisma'],
     ],
-    environment: 'node',
     globals: true,
   },
 })

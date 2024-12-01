@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { makeOrg } from 'tests/factories/make-org.factory'
+import { makeOrg } from '__test__/factories/make-org.factory'
 import request from 'supertest'
 import { app } from '@/app'
 
