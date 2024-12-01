@@ -3,7 +3,7 @@ import { makeOrg } from '__test__/factories/make-org.factory'
 import request from 'supertest'
 import { app } from '@/app'
 
-describe('[Integration] Register Controller', () => {
+describe('[Integration] Create Org Controller', () => {
   beforeAll(() => {
     app.ready()
   })
