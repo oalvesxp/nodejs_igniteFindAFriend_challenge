@@ -26,8 +26,6 @@ describe('[Integration] Create Pet Controller ', () => {
       .post('/orgs/pets')
       .send(mockPetData)
 
-    console.log(response.body)
-
     expect(response.status).toBe(201)
   })
 })
