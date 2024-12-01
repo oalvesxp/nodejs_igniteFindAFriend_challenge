@@ -1,7 +1,7 @@
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs.repository'
 import { CreateOrgUseCase } from '@/use-cases/create-org.use-case'
 import { OrgAlreadyExistsError } from '@/use-cases/errors/org-already-exists.error'
-import { makeOrg } from 'tests/factories/make-org.factory'
+import { makeOrg } from '__test__/factories/make-org.factory'
 
 import { beforeEach, describe, expect, it } from 'vitest'
 
