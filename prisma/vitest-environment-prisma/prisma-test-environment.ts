@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import { randomUUID } from 'crypto'
 import 'dotenv/config'
 import { execSync } from 'child_process'
+import { Environment } from 'vitest'
 
 const prisma = new PrismaClient()
 
@@ -16,7 +17,7 @@ function generateDatabaseURL(schema: string) {
   return url.toString()
 }
 
-export default {
+export default <Environment>{
   name: 'prisma',
   transformMode: 'ssr',
   async setup() {
