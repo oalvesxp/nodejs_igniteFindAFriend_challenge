@@ -30,15 +30,15 @@ describe('Authenticate Org Use Case', () => {
     expect(authenticateResponse.id).toEqual(expect.any(String))
   })
 
-  it.todo('Should not be able to authenticate an unexistent org', async () => {
+  it('Should not be able to authenticate an unexistent org', async () => {
     const password = await bcrypt.hash('abcd1234', 6)
 
-    await expect(() => {
+    await expect(() =>
       sut.execute({
         email: 'jhon.doe@example.com',
         password,
-      })
-    }).rejects.toBeInstanceOf(OrgNotFoundError)
+      }),
+    ).rejects.toBeInstanceOf(OrgNotFoundError)
   })
 
   it.todo('Should not be able to authenticate with doesnt metch credentials')
