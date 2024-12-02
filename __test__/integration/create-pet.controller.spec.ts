@@ -6,6 +6,7 @@ import { prisma } from '@/lib/prisma'
 
 import { makeOrg } from '__test__/factories/make-org.factory'
 import { makePet } from '__test__/factories/make-pet.factory'
+import bcrypt from 'bcryptjs'
 
 describe('[Integration] Create Pet Controller ', () => {
   beforeAll(() => {
@@ -17,13 +18,23 @@ describe('[Integration] Create Pet Controller ', () => {
   })
 
   it('Should be able to create a new pet', async () => {
-    const mockOrgData = makeOrg()
+    const password = 'abcd1234'
+    const mockOrgData = makeOrg({ password: await bcrypt.hash(password, 6) })
+
     const org = await prisma.org.create({ data: mockOrgData })
 
-    const mockPetData = makePet({ org_id: org.id })
+    const authResponse = await request(app.server).post('/orgs/sessions').send({
+      email: org.email,
+      password,
+    })
+
+    const { token } = authResponse.body
+
+    const mockPetData = makePet()
 
     const response = await request(app.server)
       .post('/orgs/pets')
+      .set('Authorization', `Bearer ${token}`)
       .send(mockPetData)
 
     expect(response.status).toBe(201)
