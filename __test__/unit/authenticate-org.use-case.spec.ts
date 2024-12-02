@@ -2,8 +2,10 @@ import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs.
 import { AuthenticateOrgUseCase } from '@/use-cases/authenticate-org.use-case'
 
 import { makeOrg } from '__test__/factories/make-org.factory'
-import bcrypt from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
+import bcrypt from 'bcryptjs'
+
+import { OrgNotFoundError } from '@/use-cases/errors/org-not-found.error'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: AuthenticateOrgUseCase
@@ -28,7 +30,16 @@ describe('Authenticate Org Use Case', () => {
     expect(authenticateResponse.id).toEqual(expect.any(String))
   })
 
-  it.todo('Should not be able to authenticate an unexistent org')
+  it.todo('Should not be able to authenticate an unexistent org', async () => {
+    const password = await bcrypt.hash('abcd1234', 6)
+
+    await expect(() => {
+      sut.execute({
+        email: 'jhon.doe@example.com',
+        password,
+      })
+    }).rejects.toBeInstanceOf(OrgNotFoundError)
+  })
 
   it.todo('Should not be able to authenticate with doesnt metch credentials')
 })
