@@ -5,7 +5,6 @@ import { makeOrg } from '__test__/factories/make-org.factory'
 import { beforeEach, describe, expect, it } from 'vitest'
 import bcrypt from 'bcryptjs'
 
-import { OrgNotFoundError } from '@/use-cases/errors/org-not-found.error'
 import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials.error'
 
 let orgsRepository: InMemoryOrgsRepository
@@ -39,7 +38,7 @@ describe('Authenticate Org Use Case', () => {
         email: 'jhon.doe@example.com',
         password,
       }),
-    ).rejects.toBeInstanceOf(OrgNotFoundError)
+    ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
 
   it('Should not be able to authenticate with doesnt metch credentials', async () => {

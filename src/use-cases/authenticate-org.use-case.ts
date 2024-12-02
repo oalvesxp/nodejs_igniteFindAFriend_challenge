@@ -1,9 +1,8 @@
 import { OrgsRepository } from '@/repositories/orgs.repository'
-import { compare } from 'bcryptjs'
 import { Org } from '@prisma/client'
 
-import { OrgNotFoundError } from './errors/org-not-found.error'
 import { InvalidCredentialsError } from './errors/invalid-credentials.error'
+import bcypt from 'bcryptjs'
 
 interface AuthenticateOrgUseCaseRequest {
   email: string
@@ -24,10 +23,10 @@ export class AuthenticateOrgUseCase {
     const org = await this.orgsRepository.findByEmail(email)
 
     if (!org) {
-      throw new OrgNotFoundError()
+      throw new InvalidCredentialsError()
     }
 
-    const doesntPassowordMatches = await compare(password, org.password)
+    const doesntPassowordMatches = await bcypt.compare(password, org.password)
 
     if (!doesntPassowordMatches) {
       throw new InvalidCredentialsError()
