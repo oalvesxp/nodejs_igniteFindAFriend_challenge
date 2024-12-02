@@ -6,6 +6,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import bcrypt from 'bcryptjs'
 
 import { OrgNotFoundError } from '@/use-cases/errors/org-not-found.error'
+import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials.error'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: AuthenticateOrgUseCase
@@ -41,5 +42,15 @@ describe('Authenticate Org Use Case', () => {
     ).rejects.toBeInstanceOf(OrgNotFoundError)
   })
 
-  it.todo('Should not be able to authenticate with doesnt metch credentials')
+  it('Should not be able to authenticate with doesnt metch credentials', async () => {
+    const password = await bcrypt.hash('abcd1234', 6)
+    const org = await orgsRepository.create(makeOrg())
+
+    await expect(() =>
+      sut.execute({
+        email: org.email,
+        password,
+      }),
+    ).rejects.toBeInstanceOf(InvalidCredentialsError)
+  })
 })
