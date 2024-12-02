@@ -23,18 +23,24 @@ export async function authenticateOrgController(
       password,
     })
 
-    const token = await rep.jwtSign({
-      sign: {
-        sub: org.id,
+    const token = await rep.jwtSign(
+      {},
+      {
+        sign: {
+          sub: org.id,
+        },
       },
-    })
+    )
 
-    const refreshToken = await rep.jwtSign({
-      sign: {
-        sub: org.id,
-        expiresIn: '7d',
+    const refreshToken = await rep.jwtSign(
+      {},
+      {
+        sign: {
+          sub: org.id,
+          expiresIn: '7d',
+        },
       },
-    })
+    )
 
     return rep
       .setCookie('refresh_token', refreshToken, {
