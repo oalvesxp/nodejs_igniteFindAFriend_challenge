@@ -11,18 +11,18 @@ const createPetBodySchema = z.object({
   size: z.string(),
   energy_level: z.string(),
   environment: z.string(),
-  org_id: z.string().uuid(),
 })
 
 export async function createPetController(
   req: FastifyRequest,
   rep: FastifyReply,
 ) {
-  const createPetUseCase = makeCreatePetUseCase()
+  const body = createPetBodySchema.parse(req.body)
+  const org_id = req.user.sub
 
   try {
-    const data = createPetBodySchema.parse(req.body)
-    const { pet } = await createPetUseCase.execute(data)
+    const createPetUseCase = makeCreatePetUseCase()
+    const { pet } = await createPetUseCase.execute({ ...body, org_id })
 
     return rep.status(201).send({ pet })
   } catch (err) {
