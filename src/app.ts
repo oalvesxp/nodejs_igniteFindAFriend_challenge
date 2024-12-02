@@ -2,10 +2,22 @@ import fastify from 'fastify'
 import { ZodError } from 'zod'
 import { env } from './env'
 
+import fastifyJwt from '@fastify/jwt'
+import fastifyCookie from '@fastify/cookie'
 import { orgsRoutes } from './http/controllers/orgs/orgs.routes'
 import { petsRoutes } from './http/controllers/pets/pets.routes'
 
 export const app = fastify()
+
+// token
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET,
+  sign: {
+    expiresIn: '10m',
+  },
+})
+
+app.register(fastifyCookie)
 
 // routes
 app.register(orgsRoutes)
