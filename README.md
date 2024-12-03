@@ -78,3 +78,13 @@ Inicialização do ambiente de DEV
 ```powershell
 npm run start:dev
 ```
+
+Testes de unidade
+```powershell
+npm run test:unit
+```
+
+Testes de integração
+```powershell
+npm run test:integration
+```
