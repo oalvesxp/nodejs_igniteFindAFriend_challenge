@@ -10,7 +10,7 @@ interface FechNearbyOrgsUseCaseResponse {
   orgs: Org[]
 }
 
-export class FechNearbyOrgsUseCase {
+export class FetchNearbyOrgsUseCase {
   constructor(private orgsRepository: OrgsRepository) {}
 
   async execute({
