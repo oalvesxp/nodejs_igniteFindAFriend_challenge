@@ -1,10 +1,25 @@
 import { Prisma, Org } from '@prisma/client'
-import { OrgsRepository } from '../orgs.repository'
+import { FindManyNearbyParams, OrgsRepository } from '../orgs.repository'
 import { randomUUID } from 'crypto'
 import { Decimal } from '@prisma/client/runtime/library'
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
 
 export class InMemoryOrgsRepository implements OrgsRepository {
   public items: Org[] = []
+
+  async findManyNearby(params: FindManyNearbyParams): Promise<Org[]> {
+    return this.items.filter((item) => {
+      const distance = getDistanceBetweenCoordinates(
+        { latitude: params.latitude, longitude: params.longitude },
+        {
+          latitude: item.latitude.toNumber(),
+          longitude: item.longitude.toNumber(),
+        },
+      )
+
+      return distance < 10
+    })
+  }
 
   async findById(id: string): Promise<Org | null> {
     const org = this.items.find((item) => item.id === id)
