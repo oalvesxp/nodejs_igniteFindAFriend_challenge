@@ -1,6 +1,6 @@
 import { Org, Prisma } from '@prisma/client'
 
-interface FindManyNearbyParams {
+export interface FindManyNearbyParams {
   latitude: number
   longitude: number
 }
