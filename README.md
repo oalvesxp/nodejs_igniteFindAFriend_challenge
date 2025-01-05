@@ -1,4 +1,4 @@
-<image src="https://media.licdn.com/dms/image/v2/D4D2DAQGtC6e8h5ax-A/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1732801764796?e=1733418000&v=beta&t=9GG2Kv2dk_2I5UZEHonD6fW58q-ZeW76fpsS_G6YHwU" />
+<image src="https://i.imgur.com/9LhSauv.png" />
 
 ## Descrição do projeto
 Desafio do módulo de SOLID de Node.js do curso da Rocketseat.
@@ -9,8 +9,8 @@ Foi utilizado conceitos da metodologia SOLID para garantir uma aplicação escal
 ---
 
 - [x] Deve ser possível cadastrar um pet
-- [ ] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
-- [ ] Deve ser possível filtrar pets por suas características
+- [x] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
+- [x] Deve ser possível filtrar pets por suas características
 - [x] Deve ser possível visualizar detalhes de um pet para adoção
 - [x] Deve ser possível se cadastrar como uma ORG
 - [x] Deve ser possível realizar login como uma ORG
@@ -18,12 +18,12 @@ Foi utilizado conceitos da metodologia SOLID para garantir uma aplicação escal
 ### RNs (Regras de Negócio)
 ---
 
-- [ ] Para listar os pets, obrigatoriamente precisamos informar a cidade
+- [x] Para listar os pets, obrigatoriamente precisamos informar a cidade
 - [x] Uma ORG precisa ter um endereço e um número de WhatsApp
 - [x] Um pet deve estar ligado a uma ORG
-- [ ] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
-- [ ] Todos os filtros, além da cidade, são opcionais
-- [ ] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+- [x] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
+- [x] Todos os filtros, além da cidade, são opcionais
+- [x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 ## Contexto da aplicação
 

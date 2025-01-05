@@ -30,7 +30,6 @@ describe('[Integration] Get Pet Controller', () => {
       .set('Authorization', `Bearer ${authenticateResponse.body.token}`)
       .send(makePet())
 
-    console.log(createPetResponse.body.pet.id)
     const response = await request(app.server)
       .get(`/orgs/pets/${createPetResponse.body.pet.id}`)
       .set('Authorization', `Bearer ${authenticateResponse.body.token}`)
