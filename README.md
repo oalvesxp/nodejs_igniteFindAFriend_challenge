@@ -1,4 +1,4 @@
-<image src="https://media.licdn.com/dms/image/v2/D4D2DAQGtC6e8h5ax-A/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1732801764796?e=1733418000&v=beta&t=9GG2Kv2dk_2I5UZEHonD6fW58q-ZeW76fpsS_G6YHwU" />
+<image src="https://i.imgur.com/9LhSauv.png" />
 
 ## Descrição do projeto
 Desafio do módulo de SOLID de Node.js do curso da Rocketseat.
